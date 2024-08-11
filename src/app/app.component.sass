@@ -1,0 +1,53 @@
+$primary-color: #3498db
+$secondary-color: #2ecc71
+$background-color: #1a1a1a
+$text-color: #ecf0f1
+$hover-effect: scale(1.1)
+$transition-duration: 0.3s
+$font-family: 'Roboto', sans-serif
+
+.header
+  display: flex
+  justify-content: space-around
+  align-items: center
+  background: linear-gradient(45deg, $primary-color, $secondary-color)
+  padding: 1rem
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3)
+  border-bottom: 2px solid darken($primary-color, 10%)
+
+  .nav-item
+    position: relative
+
+    a
+      cursor: pointer
+      color: $text-color
+      text-decoration: none
+      font-family: $font-family
+      font-size: 1.2rem
+      padding: 0.5rem 1rem
+      transition: transform $transition-duration, color $transition-duration
+
+      &:before
+        content: ''
+        position: absolute
+        width: 0
+        height: 2px
+        bottom: 0
+        left: 0
+        background-color: $text-color
+        visibility: hidden
+        transition: all $transition-duration ease-in-out
+
+      &:hover
+        color: lighten($text-color, 10%)
+        transform: $hover-effect
+
+        &:before
+          visibility: visible
+          width: 100%
+
+  @media (max-width: 768px)
+    flex-direction: column
+
+    .nav-item
+      margin: 0.5rem 0
